@@ -317,6 +317,63 @@ p { margin: 0; }
   color: var(--ink);
 }
 
+/* ---------- Vision (rotating globe) ---------- */
+.vision-section {
+  position: relative;
+  overflow: hidden;
+  background: radial-gradient(ellipse 900px 600px at 50% 40%, #14224f 0%, var(--navy) 65%);
+  color: #fff;
+  text-align: center;
+}
+
+.vision-globe {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+}
+.vision-globe svg {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: min(560px, 90vw);
+  height: min(560px, 90vw);
+  transform: translate(-50%, -50%);
+  opacity: 0.55;
+}
+.vision-globe-spin {
+  transform-origin: 200px 200px;
+  animation: vision-spin 50s linear infinite;
+}
+@keyframes vision-spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.vision-dot {
+  position: absolute;
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: var(--gold-light);
+  box-shadow: 0 0 8px 2px rgba(111,239,160,0.6);
+}
+
+.vision-inner { position: relative; z-index: 2; max-width: 780px; }
+.vision-quote {
+  font-family: 'Marcellus', serif;
+  font-size: 28px;
+  line-height: 1.5;
+  color: var(--gold-light);
+  margin-top: 16px;
+}
+.vision-sub {
+  margin-top: 22px;
+  font-size: 15.5px;
+  color: rgba(255,255,255,0.7);
+}
+.vision-section .eyebrow { background: rgba(255,255,255,0.08); border-color: rgba(111,239,160,0.4); }
+
 .about-text {
   margin-top: 22px;
   font-size: 17px;
