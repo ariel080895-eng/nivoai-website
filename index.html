@@ -173,15 +173,24 @@
       <span class="eyebrow eyebrow-dark">יצירת קשר</span>
       <h2 class="section-title section-title-dark">בואו נדבר על העסק שלכם</h2>
       <p class="section-sub">השאירו פרטים ונחזור אליכם באותו היום.</p>
-      <form class="contact-form" onsubmit="return false;">
-        <input type="text" placeholder="שם מלא" required>
-        <input type="email" placeholder="אימייל עסקי" required>
-        <input type="tel" placeholder="טלפון" required>
-        <textarea placeholder="ספרו לנו קצת על העסק שלכם" rows="4"></textarea>
+      <form class="contact-form" id="contactForm">
+        <input type="text" name="name" placeholder="שם מלא" required>
+        <input type="email" name="email" placeholder="אימייל עסקי" required>
+        <input type="tel" name="phone" placeholder="טלפון" required>
+        <textarea name="message" placeholder="ספרו לנו קצת על העסק שלכם" rows="4"></textarea>
         <button type="submit" class="btn btn-primary">שליחה</button>
       </form>
     </div>
   </section>
+
+  <div class="contact-modal-overlay" id="contactModalOverlay">
+    <div class="contact-modal" role="dialog" aria-modal="true" aria-labelledby="contactModalTitle">
+      <span class="contact-modal-icon">✓</span>
+      <h3 id="contactModalTitle">הפרטים התקבלו!</h3>
+      <p>תודה שפניתם אלינו — נציג יחזור אליכם בהקדם.</p>
+      <button type="button" class="btn btn-primary" id="contactModalClose">סגירה</button>
+    </div>
+  </div>
 
 </main>
 
@@ -279,6 +288,59 @@
       save(current);
       apply(current);
     });
+  });
+})();
+</script>
+
+<script>
+(function () {
+  var CONTACT_ENDPOINT = 'https://whatsapp-claude-bot-5pcp.onrender.com/contact';
+  var form = document.getElementById('contactForm');
+  var overlay = document.getElementById('contactModalOverlay');
+  var closeBtn = document.getElementById('contactModalClose');
+  if (!form) return;
+
+  function openModal() {
+    overlay.classList.add('open');
+  }
+
+  function closeModal() {
+    overlay.classList.remove('open');
+  }
+
+  closeBtn.addEventListener('click', closeModal);
+  overlay.addEventListener('click', function (e) {
+    if (e.target === overlay) closeModal();
+  });
+
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+    var submitBtn = form.querySelector('button[type="submit"]');
+    var data = {
+      name: form.name.value,
+      email: form.email.value,
+      phone: form.phone.value,
+      message: form.message.value,
+    };
+
+    submitBtn.disabled = true;
+
+    fetch(CONTACT_ENDPOINT, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(data),
+    })
+      .then(function (res) {
+        if (!res.ok) throw new Error('Request failed');
+        form.reset();
+        openModal();
+      })
+      .catch(function () {
+        alert('משהו השתבש בשליחה, נסו שוב או צרו קשר ישירות בוואטסאפ.');
+      })
+      .finally(function () {
+        submitBtn.disabled = false;
+      });
   });
 })();
 </script>
