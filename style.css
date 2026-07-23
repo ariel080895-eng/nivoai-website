@@ -16,7 +16,7 @@
 }
 
 * { box-sizing: border-box; }
-html { scroll-behavior: smooth; }
+html { scroll-behavior: smooth; scroll-snap-type: y mandatory; }
 
 body {
   margin: 0;
@@ -153,6 +153,8 @@ p { margin: 0; }
   display: flex;
   flex-direction: column;
   justify-content: center;
+  scroll-snap-align: start;
+  scroll-margin-top: 78px;
 }
 
 .hero-waves {
@@ -288,7 +290,15 @@ p { margin: 0; }
 }
 
 /* ---------- Dark section w/ light cards ---------- */
-.section { padding: 96px 0; }
+.section {
+  padding: 96px 0;
+  min-height: calc(100svh - 78px);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  scroll-snap-align: start;
+  scroll-margin-top: 78px;
+}
 .section-dark {
   background: var(--navy);
   color: #fff;
@@ -381,6 +391,12 @@ p { margin: 0; }
   text-align: center;
   position: relative;
   overflow: hidden;
+  min-height: calc(100svh - 78px);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  scroll-snap-align: start;
+  scroll-margin-top: 78px;
 }
 .cta-band::before {
   content: '';
