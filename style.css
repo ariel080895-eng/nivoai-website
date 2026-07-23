@@ -475,15 +475,32 @@ p { margin: 0; }
 .benefit-card p { font-size: 14px; color: var(--ink-soft); }
 
 /* ---------- Showcase (example chat mockups) ---------- */
-.showcase-grid {
+.showcase-track-wrap {
   margin-top: 46px;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 32px;
+  overflow: hidden;
+  width: 100vw;
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
+  -webkit-mask-image: linear-gradient(to right, transparent 0, #000 60px, #000 calc(100% - 60px), transparent 100%);
+  mask-image: linear-gradient(to right, transparent 0, #000 60px, #000 calc(100% - 60px), transparent 100%);
 }
 
-.phone-card { text-align: center; }
+.showcase-track {
+  display: flex;
+  width: max-content;
+  gap: 32px;
+  padding: 0 16px;
+  animation: showcase-scroll 55s linear infinite;
+}
+.showcase-track-wrap:hover .showcase-track { animation-play-state: paused; }
+
+@keyframes showcase-scroll {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
+.phone-card { text-align: center; flex-shrink: 0; }
 
 .phone-mockup {
   width: 250px;
@@ -584,6 +601,26 @@ p { margin: 0; }
 .phone-avatar-3 {
   background: conic-gradient(from 320deg, #c98a94, #7a3f47, #e0aeb3, #4a262b, #c98a94);
   filter: blur(2.6px) saturate(1.15);
+}
+.phone-avatar-4 {
+  background: conic-gradient(from 140deg, #8fae8a, #3d5a3a, #b8d4b0, #263a24, #8fae8a);
+  filter: blur(3px) saturate(1.1);
+}
+.phone-avatar-5 {
+  background: conic-gradient(from 30deg, #b09bc9, #5a4470, #d3c2e6, #372a47, #b09bc9);
+  filter: blur(3.2px) saturate(1.05);
+}
+.phone-avatar-6 {
+  background: conic-gradient(from 250deg, #d9b366, #8a6a2e, #e8cf99, #5c4519, #d9b366);
+  filter: blur(2.8px) saturate(1.1);
+}
+.phone-avatar-7 {
+  background: conic-gradient(from 100deg, #7fa8ac, #33565a, #a9cdd0, #1e3436, #7fa8ac);
+  filter: blur(3.4px) saturate(1.05);
+}
+.phone-avatar-8 {
+  background: conic-gradient(from 190deg, #c98080, #7a3535, #e0aaaa, #4a2020, #c98080);
+  filter: blur(2.5px) saturate(1.15);
 }
 
 .phone-header-text { overflow: hidden; text-align: right; }
