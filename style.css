@@ -489,8 +489,6 @@ p { margin: 0; }
 .showcase-track {
   display: flex;
   width: max-content;
-  gap: 32px;
-  padding: 0 16px;
   animation: showcase-scroll 55s linear infinite;
 }
 .showcase-track-wrap:hover .showcase-track { animation-play-state: paused; }
@@ -500,7 +498,7 @@ p { margin: 0; }
   to { transform: translateX(-50%); }
 }
 
-.phone-card { text-align: center; flex-shrink: 0; }
+.phone-card { text-align: center; flex-shrink: 0; margin-inline-end: 32px; }
 
 .phone-mockup {
   width: 250px;
