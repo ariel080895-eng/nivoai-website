@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>NivoAI — עוזר שירות לקוחות חכם לוואטסאפ</title>
+<title>מחירים — NivoAI</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;600;700;800&family=Marcellus&display=swap" rel="stylesheet">
@@ -38,60 +38,13 @@
 
 <main>
 
-  <section class="hero" id="top">
-    <div class="hero-waves" aria-hidden="true">
-      <svg viewBox="0 0 1440 700" preserveAspectRatio="none">
-        <path class="wave wave-1" d="M0,420 C280,340 420,520 720,460 C1020,400 1180,300 1440,380 L1440,700 L0,700 Z"></path>
-        <path class="wave wave-2" d="M0,500 C300,440 460,580 760,520 C1040,470 1220,400 1440,470 L1440,700 L0,700 Z"></path>
-        <path class="wave wave-3" d="M0,580 C320,540 520,640 780,600 C1060,560 1240,530 1440,580 L1440,700 L0,700 Z"></path>
-      </svg>
+  <section class="cta-band" id="pricing">
+    <div class="container cta-band-inner">
+      <h2>מוכנים לתת ללקוחות שלכם מענה מיידי?</h2>
+      <p>התחילו היום — ההקמה לוקחת פחות מ-30 דקות.</p>
+      <a class="btn btn-dark" href="contact.html">בואו נדבר</a>
     </div>
-
-    <div class="container hero-inner">
-      <div class="hero-copy">
-        <span class="eyebrow">מבוסס בינה מלאכותית מתקדמת</span>
-        <h1>שירות, מענה ו-AI<br>שמלווים את העסק שלכם<br><span class="gold-text">לכל אורך הדרך</span></h1>
-        <p class="hero-sub">
-          לא רק שנשחרר אתכם מהצורך לענות ללקוחות ידנית ונחזיר לכם שעות יקרות ביום,
-          אלא גם נדאג שכל שיחה תישאר אישית ומדויקת — כדי שהלקוחות שלכם יקבלו
-          את המענה הכי טוב, בכל שעה ובכל שפה.
-        </p>
-        <div class="hero-actions">
-          <a class="btn btn-primary" href="contact.html">לתיאום פגישת ייעוץ ואפיון</a>
-          <a class="btn btn-ghost" href="how.html">איך זה עובד</a>
-        </div>
-      </div>
-
-    </div>
-
   </section>
-
-  <div class="feature-band">
-    <div class="container feature-band-inner">
-      <div class="feature-chip"><span class="feature-icon">⚡</span><span>מענה מיידי 24/7</span></div>
-      <div class="feature-chip"><span class="feature-icon">🧠</span><span>בינה מלאכותית חכמה</span></div>
-      <div class="feature-chip"><span class="feature-icon">🌍</span><span>תמיכה רב-לשונית</span></div>
-      <div class="feature-chip"><span class="feature-icon">🚀</span><span>הקמה תוך דקות</span></div>
-      <div class="feature-chip"><span class="feature-icon">🔒</span><span>פרטיות ואבטחה</span></div>
-    </div>
-  </div>
-
-  <div class="stats-band">
-    <div class="container stats-band-inner">
-      <div class="stat-item">
-        <div class="stat-number"><span class="counter" data-target="24" data-suffix="/7">0</span></div>
-        <div class="stat-label">זמינות מלאה ללקוחות שלכם</div>
-      </div>
-      <div class="stat-item">
-        <div class="stat-number"><span class="counter" data-target="30" data-suffix=" שניות">0</span></div>
-        <div class="stat-label">זמן מענה ממוצע</div>
-      </div>
-      <div class="stat-item">
-        <div class="stat-number"><span class="counter" data-target="95" data-suffix="+">0</span></div>
-        <div class="stat-label">שפות שהבוט מבין ועונה בהן</div>
-      </div>
-    </div>
-  </div>
 
 </main>
 
@@ -190,42 +143,6 @@
       apply(current);
     });
   });
-})();
-</script>
-
-<script>
-(function () {
-  var counters = document.querySelectorAll('.counter');
-  if (!counters.length) return;
-
-  function animateCounter(el) {
-    var target = parseFloat(el.dataset.target, 10);
-    var prefix = el.dataset.prefix || '';
-    var suffix = el.dataset.suffix || '';
-    var duration = 1400;
-    var start = null;
-
-    function step(timestamp) {
-      if (!start) start = timestamp;
-      var progress = Math.min((timestamp - start) / duration, 1);
-      var eased = 1 - Math.pow(1 - progress, 3); // ease-out cubic
-      var value = Math.round(eased * target);
-      el.textContent = prefix + value.toLocaleString('he-IL') + suffix;
-      if (progress < 1) requestAnimationFrame(step);
-    }
-    requestAnimationFrame(step);
-  }
-
-  var observer = new IntersectionObserver(function (entries) {
-    entries.forEach(function (entry) {
-      if (entry.isIntersecting) {
-        animateCounter(entry.target);
-        observer.unobserve(entry.target);
-      }
-    });
-  }, { threshold: 0.4 });
-
-  counters.forEach(function (el) { observer.observe(el); });
 })();
 </script>
 
