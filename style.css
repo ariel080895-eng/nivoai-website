@@ -413,8 +413,11 @@ p { margin: 0; }
   height: 460px;
 }
 
-.icon { display: inline-block; vertical-align: middle; }
-.psb-icon { width: 15px; height: auto; }
+.icon { display: inline-block; vertical-align: middle; flex-shrink: 0; }
+.icon-battery { width: 20px; height: 10px; }
+.icon-wifi { width: 15px; height: 11px; }
+.icon-signal { width: 13px; height: 9px; }
+.icon-bell { width: 12px; height: 12px; }
 .hdr-icon { width: 21px; height: 21px; }
 .pib-icon-plus { width: 17px; height: 17px; }
 .pib-icon-sticker { width: 15px; height: 15px; }
