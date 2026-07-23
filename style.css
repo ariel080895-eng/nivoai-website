@@ -383,6 +383,118 @@ p { margin: 0; }
 .benefit-card h3 { font-size: 16px; margin-bottom: 8px; color: var(--ink); }
 .benefit-card p { font-size: 14px; color: var(--ink-soft); }
 
+/* ---------- Showcase (example chat mockups) ---------- */
+.showcase-grid {
+  margin-top: 46px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 32px;
+}
+
+.phone-card { text-align: center; }
+
+.phone-mockup {
+  width: 250px;
+  background: #111;
+  border-radius: 34px;
+  padding: 10px;
+  box-shadow: var(--shadow);
+}
+
+.phone-screen {
+  background: #ECE5DD;
+  border-radius: 24px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  height: 400px;
+}
+
+.phone-header {
+  background: var(--gold-dark);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 14px;
+  flex-shrink: 0;
+}
+
+.phone-avatar {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.55);
+  filter: blur(2.5px);
+  flex-shrink: 0;
+}
+
+.phone-name-blur {
+  width: 84px;
+  height: 11px;
+  border-radius: 6px;
+  background: rgba(255,255,255,0.65);
+  filter: blur(2px);
+}
+
+.phone-body {
+  flex: 1;
+  padding: 14px 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  overflow: hidden;
+}
+
+.msg {
+  max-width: 82%;
+  padding: 8px 12px;
+  border-radius: 12px;
+  font-size: 12.5px;
+  line-height: 1.45;
+  text-align: right;
+}
+
+.msg-in {
+  align-self: flex-end;
+  background: #fff;
+  border-bottom-right-radius: 2px;
+}
+
+.msg-out {
+  align-self: flex-start;
+  background: #DCF8C6;
+  border-bottom-left-radius: 2px;
+}
+
+.phone-caption {
+  margin-top: 16px;
+  font-size: 13.5px;
+  font-weight: 600;
+  color: var(--ink-soft);
+}
+.section-dark .phone-caption { color: rgba(255,255,255,0.75); }
+
+/* ---------- Info list (bold lead-in bullets) ---------- */
+.info-list {
+  max-width: 720px;
+  margin: 40px auto 0;
+  padding: 0;
+  list-style: none;
+  text-align: right;
+}
+.info-list li {
+  padding: 14px 0;
+  border-bottom: 1px solid rgba(255,255,255,0.12);
+  font-size: 15px;
+  line-height: 1.6;
+  color: rgba(255,255,255,0.85);
+}
+.info-list li:last-child { border-bottom: none; }
+.info-list strong { color: #fff; }
+.section:not(.section-dark) .info-list li { border-bottom-color: var(--line); color: var(--ink-soft); }
+.section:not(.section-dark) .info-list strong { color: var(--ink); }
+
 /* CTA band */
 .cta-band {
   background: linear-gradient(120deg, var(--navy), var(--navy-3));
@@ -605,6 +717,8 @@ html.a11y-stop-motion * {
 @media (max-width: 520px) {
   .benefits-grid { grid-template-columns: 1fr; }
   .feature-band-inner { flex-direction: column; align-items: flex-start; }
+  .phone-mockup { width: 210px; }
+  .phone-screen { height: 340px; }
 }
 
 /* ---------- Contact form success modal ---------- */
