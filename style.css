@@ -273,8 +273,42 @@ p { margin: 0; }
 }
 
 /* ---------- About ---------- */
-.about { padding-top: 80px; text-align: center; }
-.about-inner { max-width: 720px; position: relative; }
+.about { padding-top: 80px; text-align: center; position: relative; overflow: hidden; }
+.about-inner { max-width: 720px; position: relative; z-index: 2; }
+
+.about-bg-emblem {
+  position: absolute;
+  top: 50%;
+  left: -120px;
+  transform: translateY(-50%);
+  width: 480px;
+  height: 480px;
+  z-index: 1;
+  opacity: 0.07;
+  pointer-events: none;
+}
+.about-bg-emblem .circle-bg {
+  position: absolute; inset: 0;
+  border-radius: 50%;
+  border: 6px solid var(--ink);
+}
+.about-bg-emblem .circle-accent {
+  position: absolute; inset: 0;
+  border-radius: 50%;
+  border: 6px solid var(--gold);
+  clip-path: inset(0 50% 0 0);
+}
+.about-bg-emblem .square {
+  position: absolute; inset: 90px;
+  border: 6px solid var(--ink);
+}
+.about-bg-emblem .letter {
+  position: absolute; inset: 0;
+  display: flex; align-items: center; justify-content: center;
+  font-family: 'Marcellus', serif;
+  font-size: 220px;
+  color: var(--ink);
+}
 
 .brand-title {
   font-family: 'Marcellus', serif;
@@ -840,6 +874,9 @@ html.a11y-stop-motion * {
   .hero h1 { font-size: 32px; }
   .feature-band { margin-top: -20px; }
   .about { padding-top: 60px; }
+  .about-bg-emblem { width: 320px; height: 320px; left: -100px; }
+  .about-bg-emblem .square { inset: 60px; }
+  .about-bg-emblem .letter { font-size: 150px; }
   .stats-band-inner { justify-content: space-between; }
   .stat-item { flex: 1 1 40%; }
 }
