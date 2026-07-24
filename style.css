@@ -491,8 +491,6 @@ p { margin: 0; }
   width: max-content;
   animation: showcase-scroll 55s linear infinite;
 }
-.showcase-track-wrap:hover .showcase-track { animation-play-state: paused; }
-
 @keyframes showcase-scroll {
   from { transform: translateX(0); }
   to { transform: translateX(-33.3333%); }
