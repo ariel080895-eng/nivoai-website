@@ -479,12 +479,14 @@ p { margin: 0; }
   margin-top: 46px;
   overflow: hidden;
   width: 100%;
+  direction: ltr;
   -webkit-mask-image: linear-gradient(to right, transparent 0, #000 60px, #000 calc(100% - 60px), transparent 100%);
   mask-image: linear-gradient(to right, transparent 0, #000 60px, #000 calc(100% - 60px), transparent 100%);
 }
 
 .showcase-track {
   display: flex;
+  direction: rtl;
   width: max-content;
   animation: showcase-scroll 55s linear infinite;
 }
