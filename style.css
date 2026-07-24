@@ -495,7 +495,7 @@ p { margin: 0; }
 
 @keyframes showcase-scroll {
   from { transform: translateX(0); }
-  to { transform: translateX(-50%); }
+  to { transform: translateX(-33.3333%); }
 }
 
 .phone-card { text-align: center; flex-shrink: 0; margin-inline-end: 32px; }
