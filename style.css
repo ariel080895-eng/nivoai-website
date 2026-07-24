@@ -496,7 +496,7 @@ p { margin: 0; }
   to { transform: translateX(-33.3333%); }
 }
 
-.phone-card { text-align: center; flex-shrink: 0; margin-inline-end: 32px; }
+.phone-card { text-align: center; flex-shrink: 0; margin-inline-end: 0; }
 
 .phone-mockup {
   width: 250px;
